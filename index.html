@@ -19,7 +19,7 @@
         document.getElementById('sentiment-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const userInput = document.getElementById('user-input').value;
-            fetch('http://localhost:3000/analyze', {
+            fetch('https://four537ai.onrender.com:3000/analyze', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

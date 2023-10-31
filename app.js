@@ -55,8 +55,8 @@ app.post('/analyze', async (req, res) => {
 
 
 
-
+const PORT = process.env.PORT || 3000;
 // analyzeSentiment().catch(console.error);
-app.listen(3000);
+app.listen(PORT, ()=> {console.log(`started at port ${PORT}`)});
 
-console.log("started");
+
