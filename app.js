@@ -56,3 +56,5 @@ app.post('/analyze', async (req, res) => {
 
 // analyzeSentiment().catch(console.error);
 app.listen(3000);
+
+console.log("started");
