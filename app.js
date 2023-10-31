@@ -9,7 +9,9 @@ app.use(bodyParser.json());
 const { LanguageServiceClient } = require('@google-cloud/language');
 
 // Replace with the path to your service account key JSON file
-const credentialsPath = '/Users/levieo/Desktop/Term 4/4537 ISA/ai/ai-403715-af7c0937f52c.json';
+// const credentialsPath = '/Users/levieo/Desktop/Term 4/4537 ISA/ai/ai-403715-af7c0937f52c.json';
+const credentialsPath = './ai-403715-af7c0937f52c.json';
+
 
 // Initialize the Natural Language API client
 const client = new LanguageServiceClient({ keyFilename: credentialsPath });
