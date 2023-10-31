@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form id="sentiment-form">
+        <label for="user-input">Enter text:</label>
+        <input type="text" id="user-input" name="user-input">
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+    <div id="sentiment-result">
+        <p id="score">Sentiment Score: </p>
+        <p id="magnitude">Sentiment Magnitude: </p>
+    </div>
+
+    <script>
+        document.getElementById('sentiment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userInput = document.getElementById('user-input').value;
+            fetch('http://localhost:3000/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user_input: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('score').textContent = `Sentiment Score: ${data.sentimentScore}`;
+                document.getElementById('magnitude').textContent = `Sentiment Magnitude: ${data.sentimentMagnitude}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
