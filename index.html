@@ -28,8 +28,9 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById('score').textContent = `Sentiment Score: ${data.sentimentScore}`;
-                document.getElementById('magnitude').textContent = `Sentiment Magnitude: ${data.sentimentMagnitude}`;
+                const result = data.sentimentScore >= 0 ? "Positive" : "Negative";
+                document.getElementById('score').textContent = `Sentiment: ${result}`;
+                document.getElementById('magnitude').textContent = `Sentiment Score: ${data.sentimentMagnitude}`;
             })
             .catch(error => {
                 console.error('Error:', error);
